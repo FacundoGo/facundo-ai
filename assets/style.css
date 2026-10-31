@@ -71,7 +71,7 @@ h1, h2 { font-family: var(--f-display); font-weight: 800; letter-spacing: -.035e
 /* highlighter on key words */
 h1 em, h2 em {
   font-style: normal;
-  background: var(--c-highlight);
+  background: linear-gradient(transparent 14%, var(--c-highlight) 14%, var(--c-highlight) 90%, transparent 90%);
   color: var(--c-ink);
   padding: 0 .12em;
   border-radius: 6px;
@@ -344,7 +344,7 @@ a.exp:hover { background: var(--c-surface); }
 .cta-copy { display: flex; flex-direction: column; gap: 16px; }
 .cta .eyebrow { color: var(--c-accent); }
 .cta h2 { font-size: 56px; line-height: 1.08; }
-.cta h2 em { background: var(--c-accent); color: var(--c-ink); }
+.cta h2 em { color: var(--c-ink); }
 .cta p { color: var(--c-on-dark-2); max-width: 56ch; }
 
 @media (max-width: 720px) {
