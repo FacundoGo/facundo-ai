@@ -19,6 +19,7 @@
   --c-on-dark-2:   #B9BCC4;  /* secondary text on dark blocks */
   --c-running:     #1E8A5A;
   --c-testing:     #A86D0F;
+  --c-paused:      #A86D0F;  /* paused / standby */
   --c-closed:      #6B6F76;
 
   /* Fonts */
@@ -199,7 +200,15 @@ h1 em, h2 em { color: var(--c-accent-em); }
   position: relative; aspect-ratio: 4/5;
   border-radius: var(--r-md); overflow: hidden; background: var(--c-media);
 }
-.shot video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.shot video, .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.shot img { object-position: center top; }
+.shot .play {
+  position: absolute; left: 10px; bottom: 10px;
+  width: 34px; height: 34px; border-radius: var(--r-pill);
+  display: grid; place-items: center;
+  background: rgba(11,11,12,.75); color: #fff; font-size: 13px;
+}
+a.card:hover .play { background: var(--c-ink); }
 .card-meta { padding: 10px 6px 6px; display: flex; flex-direction: column; gap: 2px; }
 .card-meta b { font-size: 14px; font-weight: 600; }
 .card-meta span { font-family: var(--f-mono); font-size: 11px; letter-spacing: .04em; color: var(--c-accent-ink); }
@@ -218,7 +227,7 @@ h1 em, h2 em { color: var(--c-accent-em); }
 /* ---------- Stats (animated counters) ---------- */
 @property --n { syntax: '<integer>'; inherits: false; initial-value: 0; }
 @keyframes c1 { to { --n: 575; } }
-@keyframes c2 { to { --n: 1879; } }
+@keyframes c2 { to { --n: 93; } }
 @keyframes c3 { to { --n: 54; } }
 .stats {
   display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
@@ -236,6 +245,7 @@ h1 em, h2 em { color: var(--c-accent-em); }
 }
 .cnt::after { content: counter(n); }
 .cnt.eur::before { content: '€'; }
+.cnt.k2::after { content: counter(n) '.3K'; }  /* 93.3K */
 .cnt.k1 { animation: c1 1.8s cubic-bezier(.2,.7,.2,1) .2s both; }
 .cnt.k2 { animation: c2 2.2s cubic-bezier(.2,.7,.2,1) .2s both; }
 .cnt.k3 { animation: c3 1.4s cubic-bezier(.2,.7,.2,1) .2s both; }
@@ -266,6 +276,7 @@ a.exp:hover { background: var(--c-surface); }
 .status     { grid-area: status; justify-self: end; }
 .status--running { color: var(--c-running); }
 .status--testing { color: var(--c-testing); }
+.status--paused  { color: var(--c-paused); }
 .status--closed  { color: var(--c-closed); }
 .exp--closed { opacity: .55; }
 .exp--closed b { text-decoration: line-through; }
@@ -294,11 +305,19 @@ a.exp:hover { background: var(--c-surface); }
 .tool-card .mono { color: var(--c-accent-ink); }
 .tool-card p { color: var(--c-muted); }
 .tool-card .go { font-weight: 600; color: var(--c-accent-ink); }
+.tool-card--media { justify-content: flex-start; align-items: center; gap: 24px; flex-wrap: nowrap; }
+.tool-card--media img {
+  width: 140px; aspect-ratio: 4/5; object-fit: cover; object-position: top;
+  border-radius: var(--r-md); flex: none;
+}
+.tool-card--media .go { display: inline-block; margin-top: 8px; }
 .fine { color: var(--c-muted-2); font-size: 15px; }
 
 @media (max-width: 720px) {
   .tool-card { padding: 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
   .tool-card b { font-size: 19px; }
+  .tool-card--media { flex-direction: row; align-items: center; gap: 16px; }
+  .tool-card--media img { width: 96px; }
   .fine { font-size: 14px; }
 }
 
@@ -373,7 +392,7 @@ a.exp:hover { background: var(--c-surface); }
 @media (prefers-reduced-motion: reduce) {
   .card, .pill { animation: none; transition: none; }
   .cnt { animation: none !important; counter-reset: none; }
-  .cnt::after { content: attr(data-v); }
+  .cnt::after, .cnt.k2::after { content: attr(data-v); }
 }
 
 /* main column on the home page */

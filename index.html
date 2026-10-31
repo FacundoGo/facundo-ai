@@ -19,7 +19,7 @@
   <span class="brand">
     <a class="logo" href="/">facundo<span>.ai</span></a>
     <span class="live-badge mono">● Live</span>
-    <span class="brand-note">5 ventures running</span>
+    <span class="brand-note">3 ventures running</span>
   </span>
   <nav class="site-nav" aria-label="Main">
     <a class="nav-link" href="/#experiments">Experiments</a>
@@ -38,13 +38,17 @@
   <p class="lead">Product lead by day. By night I test my own online businesses and post what I did, what it cost and what happened.</p>
   <div class="hero-ctas">
     <a class="pill pill--accent" href="#work">Work with me</a>
-    <a class="pill pill--outline" href="https://x.com/GomezveraF">Follow on X</a>
+    <a class="pill pill--outline" href="https://x.com/GomezveraF" target="_blank" rel="noopener">Follow on X</a>
   </div>
-  <!-- Newsletter: placeholder. Swap action/name for your provider's embed later. -->
-  <form class="newsletter" action="#" onsubmit="return false;">
+  <!-- Newsletter: sends visitors to the Golf Spain Guide beehiiv subscribe page (new tab),
+       tagged utm_source=facundo.ai so you can see where signups came from in beehiiv. -->
+  <form class="newsletter" action="https://golf-spain-guide.beehiiv.com/subscribe" method="get" target="_blank">
     <label for="mail" class="sr-only">Your email</label>
-    <input id="mail" name="email" type="email" placeholder="Weekly experiment: you@email.com" autocomplete="email">
-    <button type="button" class="pill pill--dark">Subscribe</button>
+    <input id="mail" name="email" type="email" placeholder="Get updates: you@email.com" autocomplete="email" required>
+    <input type="hidden" name="utm_source" value="facundo.ai">
+    <input type="hidden" name="utm_medium" value="website">
+    <input type="hidden" name="utm_campaign" value="hero_form">
+    <button type="submit" class="pill pill--dark">Subscribe</button>
   </form>
 </section>
 
@@ -53,17 +57,17 @@
     <div class="shot"><video src="/assets/clips/padel-1.mp4" poster="/assets/clips/padel-1.jpg" controls playsinline preload="none" aria-label="play.better.padel clip"></video></div>
     <div class="card-meta"><b>play.better.padel</b><span>1,879 views · best reel ↑</span></div>
   </div>
-  <div class="card">
-    <div class="shot"><video src="/assets/clips/siestita-1.mp4" poster="/assets/clips/siestita-1.jpg" controls playsinline preload="none" aria-label="Siestita clip"></video></div>
-    <div class="card-meta"><b>Siestita</b><span>&lt;30 followers · growing fast ↑</span></div>
-  </div>
+  <a class="card" href="https://www.instagram.com/reel/DfErSApD7bz/" target="_blank" rel="noopener">
+    <div class="shot shot--link"><img src="/assets/clips/siestita-best-reel.webp" alt="Siestita reel: What if dachshunds ruled the world" loading="lazy"><span class="play" aria-hidden="true">▶</span></div>
+    <div class="card-meta"><b>Siestita</b><span>93,300 views · best reel ↑</span></div>
+  </a>
   <div class="card">
     <div class="shot"><video src="/assets/clips/roadtrip.mp4" poster="/assets/clips/roadtrip.jpg" controls playsinline preload="none" aria-label="Road Trip Packer clip"></video></div>
-    <div class="card-meta"><b>Road Trip Packer</b><span>€54 in ads · 0 sales</span></div>
+    <div class="card-meta"><b>Road Trip Packer</b><span>€54 in ads · 0 sales · paused</span></div>
   </div>
   <div class="card">
     <div class="shot"><video src="/assets/clips/nogues.mp4" poster="/assets/clips/nogues.jpg" controls playsinline preload="none" aria-label="Nogues Merino clip"></video></div>
-    <div class="card-meta"><b>Nogues Merino</b><span>183 views · best reel</span></div>
+    <div class="card-meta"><b>Nogues Merino</b><span>183 views · on standby</span></div>
   </div>
 </section>
 
@@ -74,9 +78,9 @@
     <span class="note">golfspain.guide, since Jul 25</span>
   </div>
   <div class="stat">
-    <span class="mono">Best padel reel</span>
-    <b class="cnt k2" data-v="1879" aria-hidden="true"></b><span class="sr-only">1879</span>
-    <span class="note">views</span>
+    <span class="mono">Best reel</span>
+    <b class="cnt k2" data-v="93.3K" aria-hidden="true"></b><span class="sr-only">93,300</span>
+    <span class="note">views · 8,000+ likes (Siestita)</span>
   </div>
   <div class="stat">
     <span class="mono">Ad spend</span>
@@ -88,34 +92,34 @@
 <section id="experiments" class="stack">
   <h2 class="h2">Experiments</h2>
   <div class="exp-list">
-    <a class="exp" href="https://golfspain.guide">
+    <a class="exp" href="https://golfspain.guide" target="_blank" rel="noopener">
       <span class="exp-name"><b>golfspain.guide</b><span class="exp-desc">Golf directory built with Claude in one afternoon</span></span>
-      <span class="exp-metric">575 clicks since July 25</span>
+      <span class="exp-metric">575 clicks since July 25 · 4,500+ Gen AI impressions · only 6 newsletter subscribers so far</span>
       <span class="status status--running mono">● Running</span>
     </a>
-    <a class="exp" href="https://roadtrippacker.com">
+    <a class="exp" href="https://roadtrippacker.com" target="_blank" rel="noopener">
       <span class="exp-name"><b>Road Trip Packer</b><span class="exp-desc">PDF guides for driving in Europe</span></span>
       <span class="exp-metric">€54 in ads · 0 sales · verdict: not yet</span>
-      <span class="status status--testing mono">● Testing</span>
+      <span class="status status--paused mono">● Paused</span>
     </a>
-    <a class="exp" href="https://instagram.com/play.better.padel">
+    <a class="exp" href="https://instagram.com/play.better.padel" target="_blank" rel="noopener">
       <span class="exp-name"><b>play.better.padel</b><span class="exp-desc">Padel videos edited with AI</span></span>
       <span class="exp-metric">37 followers · best reel 1,879 views</span>
       <span class="status status--running mono">● Running</span>
     </a>
-    <div class="exp">
+    <a class="exp" href="https://www.instagram.com/reel/DfErSApD7bz/" target="_blank" rel="noopener">
       <span class="exp-name"><b>Siestita</b><span class="exp-desc">Dog clothing, with an AI-made character</span></span>
-      <span class="exp-metric">&lt;30 followers · growing fast</span>
+      <span class="exp-metric">Best reel 93,300 views · 470 reposts · 8,000+ likes</span>
       <span class="status status--running mono">● Running</span>
-    </div>
+    </a>
     <div class="exp">
       <span class="exp-name"><b>Nogues Merino</b><span class="exp-desc">Affordable luxury, named after my great-grandparents</span></span>
-      <span class="exp-metric">9 followers · best reel 183 views</span>
-      <span class="status status--running mono">● Running</span>
+      <span class="exp-metric">On standby while I prioritize other projects · best reel 183 views</span>
+      <span class="status status--paused mono">● Standby</span>
     </div>
     <div class="exp exp--closed">
       <span class="exp-name"><b>Kynetiq</b><span class="exp-desc">Muscle-recovery boots for the EU.</span></span>
-      <span class="exp-metric">Closed in October</span>
+      <span class="exp-metric">Closed in October · failure analysis coming soon</span>
       <span class="status status--closed mono">● Closed</span>
     </div>
   </div>
@@ -123,13 +127,22 @@
 
 <section id="tools" class="stack">
   <h2 class="h2">Free tools</h2>
-  <a class="tool-card" href="https://golfspain.guide">
+  <a class="tool-card" href="https://golfspain.guide" target="_blank" rel="noopener">
     <span>
       <span class="mono">● Live</span>
       <b>Golf handicap calculator</b>
       <p>The most-used page on golfspain.guide, built with Claude in one afternoon.</p>
     </span>
     <span class="go">Open it →</span>
+  </a>
+  <a class="tool-card tool-card--media" href="https://github.com/FacundoGo/cv-video-skill" target="_blank" rel="noopener">
+    <img src="/assets/tools/cv-video.webp" alt="Preview: Hiring a product lead? Here's 10 years in 40 seconds." loading="lazy">
+    <span>
+      <span class="mono">● Free on GitHub</span>
+      <b>Turn your CV into a 40-second video</b>
+      <p>How I made mine: “Hiring a product lead? Here's 10 years in 40 seconds.”</p>
+      <span class="go">Get it on GitHub →</span>
+    </span>
   </a>
   <p class="fine">Next: “How much does your first sale cost?” and “Validate your idea before spending €1”. Coming soon.</p>
 </section>
@@ -165,7 +178,7 @@
     <a href="/skills/">Skills</a>
     <a href="/padel/">Padel</a>
     <a href="/audit/">Audit</a>
-    <a href="https://x.com/GomezveraF">@GomezveraF</a>
+    <a href="https://x.com/GomezveraF" target="_blank" rel="noopener">@GomezveraF</a>
   </nav>
 </footer>
 
