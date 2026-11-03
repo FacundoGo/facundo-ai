@@ -409,3 +409,26 @@ a.exp:hover { background: var(--c-surface); }
 
 /* main column on the home page */
 .sections { display: flex; flex-direction: column; gap: var(--section-gap); }
+
+/* ---------- Privacy page text ---------- */
+.prose h2 { font-size: 28px; line-height: 1.1; margin-top: 12px; }
+.prose p { color: var(--c-ink-2); }
+.prose a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Cookie banner ---------- */
+#cookie-bar {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50;
+  max-width: 640px; margin: 0 auto;
+  background: var(--c-surface); color: var(--c-ink);
+  border-radius: var(--r-xl); box-shadow: var(--sh-card), 0 20px 40px -20px rgba(11,11,12,.35);
+  padding: 16px 18px;
+  display: flex; gap: 16px; align-items: center;
+  font-size: 14px; line-height: 1.45;
+}
+#cookie-bar p { margin: 0; color: var(--c-ink-2); }
+#cookie-bar a { text-decoration: underline; text-underline-offset: 3px; }
+.cookie-actions { display: flex; gap: 8px; flex: none; }
+@media (max-width: 720px) {
+  #cookie-bar { flex-direction: column; align-items: stretch; }
+  .cookie-actions .pill { flex: 1; }
+}
