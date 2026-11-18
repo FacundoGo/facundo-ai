@@ -239,7 +239,7 @@ a.card:hover .play { background: var(--c-ink); }
 /* ---------- Stats (animated counters) ---------- */
 @property --n { syntax: '<integer>'; inherits: false; initial-value: 0; }
 @keyframes c1 { to { --n: 575; } }
-@keyframes c2 { to { --n: 93; } }
+@keyframes c2 { to { --n: 452; } }
 @keyframes c3 { to { --n: 54; } }
 .stats {
   display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
@@ -257,7 +257,7 @@ a.card:hover .play { background: var(--c-ink); }
 }
 .cnt::after { content: counter(n); }
 .cnt.eur::before { content: '€'; }
-.cnt.k2::after { content: counter(n) '.3K'; }  /* 93.3K */
+.cnt.k2::after { content: counter(n) '.7K'; }  /* 452.7K */
 .cnt.k1 { animation: c1 1.8s cubic-bezier(.2,.7,.2,1) .2s both; }
 .cnt.k2 { animation: c2 2.2s cubic-bezier(.2,.7,.2,1) .2s both; }
 .cnt.k3 { animation: c3 1.4s cubic-bezier(.2,.7,.2,1) .2s both; }
