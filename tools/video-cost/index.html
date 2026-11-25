@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real cost per usable AI clip · facundo.ai</title>
+<meta name="description" content="What a usable AI clip actually costs: list price per second, times length, times the attempts you throw away. List prices as of Nov 2026.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER (shared: copy changes to every page) -->
+<header class="site-header">
+  <span class="brand">
+    <a class="logo" href="/">facundo<span>.ai</span></a>
+    <span class="live-badge mono">● Live</span>
+    <span class="brand-note">3 ventures running</span>
+  </span>
+  <nav class="site-nav" aria-label="Main">
+    <a class="nav-link" href="/#experiments">Experiments</a>
+    <a class="nav-link" href="/cv/">CV</a>
+    <a class="nav-link" href="/skills/">Skills</a>
+    <a class="nav-link" href="/padel/">Padel</a>
+    <a class="pill pill--dark pill--sm" href="/audit/">Work with me</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="page-intro">
+    <span class="eyebrow">Free tool</span>
+    <h1>Real cost per <em>usable AI clip.</em></h1>
+    <p class="lead">The rate card is a price per second. A usable clip is the one you keep, after the attempts you throw away. List prices, in US dollars, as of Nov 2026. They change.</p>
+  </div>
+
+  <form class="calc" id="video-cost" action="#video-cost">
+    <div class="calc-layout">
+      <div class="calc-fields">
+        <label for="clip-seconds">Clip length
+          <span class="hint">Seconds</span>
+          <input id="clip-seconds" name="seconds" type="number" min="0.1" step="0.1" value="11" inputmode="decimal">
+        </label>
+        <label for="clip-attempts">Attempts per keeper
+          <span class="hint">Generations until you keep one, including the retries.</span>
+          <input id="clip-attempts" name="attempts" type="number" min="1" step="1" value="1" inputmode="numeric">
+        </label>
+        <label for="clip-weekly">Clips per week
+          <span class="hint">Usable clips you actually keep.</span>
+          <input id="clip-weekly" name="weekly" type="number" min="0" step="1" value="1" inputmode="decimal">
+        </label>
+        <label for="clip-custom" id="custom-price-label" hidden>Custom price
+          <span class="hint">US dollars per second</span>
+          <input id="clip-custom" name="custom" type="number" min="0" step="0.001" inputmode="decimal" placeholder="0.00">
+        </label>
+      </div>
+
+      <fieldset class="presets">
+        <legend>Model / provider</legend>
+        <label>
+          <input type="radio" name="preset" value="magi-1080" data-rate="0.08" checked>
+          <span class="preset-name">MAGI-2 1080p</span>
+          <span class="preset-rate">$0.08/s</span>
+        </label>
+        <label>
+          <input type="radio" name="preset" value="seedance-youart" data-rate="0.208">
+          <span class="preset-name">Seedance 2.5 720p · YouArt</span>
+          <span class="preset-rate">$0.208/s</span>
+        </label>
+        <label>
+          <input type="radio" name="preset" value="seedance-higgsfield" data-rate="0.462">
+          <span class="preset-name">Seedance 2.5 720p · Higgsfield</span>
+          <span class="preset-rate">$0.462/s</span>
+        </label>
+        <label>
+          <input type="radio" name="preset" value="seedance-fal" data-rate="0.473">
+          <span class="preset-name">Seedance 2.5 720p · fal</span>
+          <span class="preset-rate">$0.473/s</span>
+        </label>
+        <label>
+          <input type="radio" name="preset" value="seedance-runway-4k" data-rate="1.10">
+          <span class="preset-name">Seedance 2.5 4K · Runway</span>
+          <span class="preset-rate">$1.10/s</span>
+        </label>
+        <label>
+          <input type="radio" name="preset" value="minimax-h3" data-rate="0">
+          <span class="preset-name">MiniMax H3 local · 8 GB VRAM</span>
+          <span class="preset-rate">$0/s</span>
+        </label>
+        <label>
+          <input type="radio" name="preset" value="custom" data-custom="true">
+          <span class="preset-name">Custom</span>
+          <span class="preset-rate">your $/s</span>
+        </label>
+      </fieldset>
+    </div>
+  </form>
+
+  <div class="results" aria-live="polite">
+    <div class="result">
+      <span class="mono">List price per clip</span>
+      <b class="result-num" id="out-list">—</b>
+      <span class="note" id="note-list">price per second × seconds</span>
+    </div>
+    <div class="result">
+      <span class="mono">Real cost per usable clip</span>
+      <b class="result-num" id="out-real">—</b>
+      <span class="note" id="note-real">list price × attempts</span>
+    </div>
+    <div class="result">
+      <span class="mono">Monthly cost</span>
+      <b class="result-num" id="out-month">—</b>
+      <span class="note" id="note-month">usable clip × clips/week × 52/12</span>
+    </div>
+  </div>
+
+  <p class="fine">Usable clip = price per second × seconds × attempts per keeper. Month = that × clips per week × 52/12. A month here is 52 weeks ÷ 12. List prices, in US dollars, as of Nov 2026. Providers change them.</p>
+
+  <aside class="bench">
+    <span class="mono">My benchmark</span>
+    <p>An 11-second clip of mine cost 84 credits, about €5 per attempt. Separate from the rate card above. The length field starts at 11 seconds, the length of that clip.</p>
+  </aside>
+
+  <noscript>
+    <p class="fine">The totals need JavaScript. The list prices on the rate card still stand.</p>
+  </noscript>
+</main>
+
+<!-- FOOTER (shared: copy changes to every page) -->
+<footer class="site-footer">
+  <span>Facundo Gómez Vera · Valencia</span>
+  <nav class="footer-links" aria-label="Footer">
+    <a href="/cv/">CV</a>
+    <a href="/skills/">Skills</a>
+    <a href="/padel/">Padel</a>
+    <a href="/audit/">Audit</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/privacy/" onclick="return window.faiCookieSettings ? faiCookieSettings() : true;">Cookie settings</a>
+    <a href="https://x.com/GomezveraF" target="_blank" rel="noopener">@GomezveraF</a>
+  </nav>
+</footer>
+
+</div>
+<script src="/assets/video-cost.js"></script>
+</body>
+</html>
