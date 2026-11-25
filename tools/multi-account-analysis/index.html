@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-Account Analysis · facundo.ai</title>
+<meta name="description" content="Aggregate performance across your Instagram, YouTube, and X accounts in one place. Export for ChatGPT.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/analytics.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER (shared: copy changes to every page) -->
+<header class="site-header">
+  <span class="brand">
+    <a class="logo" href="/">facundo<span>.ai</span></a>
+    <span class="live-badge mono">● Live</span>
+    <span class="brand-note">Tools</span>
+  </span>
+  <nav class="site-nav" aria-label="Main">
+    <a class="nav-link" href="/#experiments">Experiments</a>
+    <a class="nav-link" href="/cv/">CV</a>
+    <a class="nav-link" href="/skills/">Skills</a>
+    <a class="nav-link" href="/padel/">Padel</a>
+    <a class="pill pill--dark pill--sm" href="/audit/">Work with me</a>
+  </nav>
+</header>
+
+<main class="sections">
+
+<section class="hero">
+  <span class="eyebrow">Free tool · Multi-account</span>
+  <h1>Multi-Account <em>Performance Aggregator</em></h1>
+  <p class="lead">Connect your Instagram, YouTube, and X accounts. See key metrics in one table. Export CSV/JSON for ChatGPT.</p>
+</section>
+
+<section class="stack">
+  <h2 class="h2">How it works</h2>
+  <div class="exp-list">
+    <div class="exp">
+      <span class="exp-name"><b>1. Connect accounts</b><span class="exp-desc">OAuth with Instagram Professional, YouTube, and X accounts you own</span></span>
+      <span class="exp-metric">Official APIs only · tokens encrypted</span>
+    </div>
+    <div class="exp">
+      <span class="exp-name"><b>2. Unified dashboard</b><span class="exp-desc">One table across platforms: followers, reach/impressions, engagement</span></span>
+      <span class="exp-metric">Filter by platform · date ranges</span>
+    </div>
+    <div class="exp">
+      <span class="exp-name"><b>3. Export</b><span class="exp-desc">CSV or JSON ready to drop into ChatGPT for analysis</span></span>
+      <span class="exp-metric">Free tier: up to 10 accounts</span>
+    </div>
+  </div>
+</section>
+
+<section class="stack">
+  <h2 class="h2">Preview</h2>
+  <div class="tool-card" style="flex-direction: column; align-items: stretch; gap: 1.5rem;">
+    <p>Connect flow and live metrics coming next. This is the frontend shell.</p>
+    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <button class="pill pill--accent" disabled>Connect Instagram</button>
+      <button class="pill pill--outline" disabled>Connect YouTube</button>
+      <button class="pill pill--outline" disabled>Connect X</button>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+      <thead>
+        <tr style="border-bottom: 1px solid #eee;">
+          <th style="text-align: left; padding: 0.5rem;">Account</th>
+          <th style="text-align: left; padding: 0.5rem;">Platform</th>
+          <th style="text-align: right; padding: 0.5rem;">Followers</th>
+          <th style="text-align: right; padding: 0.5rem;">Reach / Views</th>
+          <th style="text-align: right; padding: 0.5rem;">Engagement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #f5f5f5;">
+          <td style="padding: 0.5rem;">@example</td>
+          <td style="padding: 0.5rem;">Instagram</td>
+          <td style="padding: 0.5rem; text-align: right;">12.4K</td>
+          <td style="padding: 0.5rem; text-align: right;">48.2K</td>
+          <td style="padding: 0.5rem; text-align: right;">3.1%</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5rem;">Example Channel</td>
+          <td style="padding: 0.5rem;">YouTube</td>
+          <td style="padding: 0.5rem; text-align: right;">8.1K</td>
+          <td style="padding: 0.5rem; text-align: right;">92K</td>
+          <td style="padding: 0.5rem; text-align: right;">4.8%</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="pill pill--dark" disabled>Export CSV</button>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-copy">
+    <span class="eyebrow">Next steps</span>
+    <h2>Backend & OAuth <em>coming next.</em></h2>
+    <p>This page is the frontend shell. The full version needs serverless functions for Instagram Graph API, YouTube Analytics API, and X API v2, plus encrypted token storage.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER (shared: copy changes to every page) -->
+<footer class="site-footer">
+  <span>Facundo Gómez Vera · Valencia</span>
+  <nav class="footer-links" aria-label="Footer">
+    <a href="/cv/">CV</a>
+    <a href="/skills/">Skills</a>
+    <a href="/padel/">Padel</a>
+    <a href="/audit/">Audit</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/privacy/" onclick="return window.faiCookieSettings ? faiCookieSettings() : true;">Cookie settings</a>
+    <a href="https://x.com/GomezveraF" target="_blank" rel="noopener">@GomezveraF</a>
+  </nav>
+</footer>
+
+</div>
+</body>
+</html>
